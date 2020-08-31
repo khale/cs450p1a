@@ -1,6 +1,16 @@
-CC:=gcc
 CFLAGS:= -Wall -Werror -O2
 TARGETS:=my-cat my-grep my-zip my-unzip
+
+
+ifeq ($(CONTINUE), true)
+	CONT:=-c
+endif
+
+ifeq ($(USE_CLANG), true)
+	CC:=clang
+else 
+	CC:=gcc
+endif
 
 all: $(TARGETS)
 
@@ -38,22 +48,22 @@ handin-check:
 	fi
 
 test-all:
-	@tests/bin/test-my-cat.csh
-	@tests/bin/test-my-grep.csh
-	@tests/bin/test-my-zip.csh
-	@tests/bin/test-my-unzip.csh
+	@tests/bin/test-my-cat.csh $(CONT)
+	@tests/bin/test-my-grep.csh $(CONT)
+	@tests/bin/test-my-zip.csh $(CONT)
+	@tests/bin/test-my-unzip.csh $(CONT)
 
 test-my-cat:
-	@tests/bin/test-my-cat.csh
+	@tests/bin/test-my-cat.csh $(CONT)
 
 test-my-grep:
-	@tests/bin/test-my-grep.csh
+	@tests/bin/test-my-grep.csh $(CONT)
 
 test-my-zip:
-	@tests/bin/test-my-zip.csh
+	@tests/bin/test-my-zip.csh $(CONT)
 
 test-my-unzip:
-	@tests/bin/test-my-unzip.csh
+	@tests/bin/test-my-unzip.csh $(CONT)
 
 clean:
 	@rm -f $(TARGETS)
