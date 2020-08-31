@@ -163,7 +163,7 @@ file (thus indicating you no longer need to read from it).
 * Your program `my-cat` can be invoked with one or more files on the command
 line; it should just print out each file in turn. 
 * In all non-error cases, `my-cat` should exit with status code 0, usually by
-returning a 0 from `min()` (or by calling `exit(0)`).
+returning a 0 from `main()` (or by calling `exit(0)`).
 * If *no files* are specified on the command line, `my-cat` should just exit
 and return 0. Note that this is slightly different than the behavior of 
 normal UNIX `cat` (if you're curious, figure out the difference).
