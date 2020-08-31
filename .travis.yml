@@ -1,6 +1,6 @@
 language: c
 dist: xenial
-script: make test-all
+script: make 
 addons:
     apt:
         update: true
